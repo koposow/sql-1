@@ -5,12 +5,13 @@ FROM address
 WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 
--- 2. платежы, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005
-
+-- 2. платежы, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 и сортировка по дате платеха - так красивее
 SELECT *
 FROM payment
-WHERE payment_date >= '2005-06-15' AND payment_date <= '2005-06-18' AND amount > 10.00;
-
+WHERE payment_date >= '2005-06-15' AND payment_date <= '2005-06-18 23:59:59'
+AND amount > 10.00
+ORDER BY payment_date; 
+ 
 -- 3. Получите последние пять аренд фильмов.
 
 SELECT *
